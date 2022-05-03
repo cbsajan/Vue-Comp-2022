@@ -4,7 +4,9 @@
             <div class="container">
                 <comp-user-profile 
                     :alsoKnowAs="name"
-                    lastname="C B"
+                    :userLastname="lastname"
+                    :userAge="age"
+                    :userParents="parents"
                 ></comp-user-profile>
                 <button @click="updateName">Update name</button>
             </div>
@@ -20,12 +22,18 @@
         },
         data(){
             return {
-                name: "Rocket"
+                name: 'Rocket',
+                lastname:'C B ',
+                age:28,
+                parents:{
+                    father:'Something...',
+                    mother:'Something...'
+                }
             }
         },
         methods:{
             updateName(){
-                this.name ='Sajan'
+                this.name ='Intelligent'
             }
         }
  
