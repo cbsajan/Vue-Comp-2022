@@ -14,12 +14,16 @@
                  <li>
                     <span>Age:</span> {{ userAge }}
                 </li>
+                <h4>Parents :</h4>
                   <ul>
                     <li v-for="(key,value,index) in userParents" :key="index">
                         <span>{{ value }}:</span> {{ key }}
                     </li>
                 </ul>
             </ul>
+            <button @click="updateLastname" >Change from child</button>
+            <button @click="sayHello" >Say Hello</button>
+            <button @click="updateAge(10)" >Update Age</button>
         </div>
 </template>
 
@@ -29,12 +33,22 @@
             alsoKnowAs:String,
             userLastname:String,
             userAge:Number,
-            userParents: Object
+            userParents: Object,
+            updateAge:Function
         },
         data(){
             return {
                 name:'Sajan'
             }
+        },
+        methods:{
+            updateLastname(){
+                this.$emit('update-lastname','Test  ')
+            },
+            sayHello(){
+                this.$emit('say-hello' )
+            },
+           
         }
     }
 </script>
