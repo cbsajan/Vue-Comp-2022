@@ -8,7 +8,7 @@
                     :userAge="age"
                     :userParents="parents"
                     @update-lastname="lastname = $event"
-                    @say-hello="alertHello" 
+                    @say-hello="alertHello"
                     :updateAge="updateAge"
                 ></comp-user-profile>
                 <button @click="updateName">Update name</button>
@@ -26,24 +26,23 @@
         data(){
             return {
                 name: 'Rocket',
-                lastname:'C B ',
-                age:28,
+                lastname:'Jones',
+                age:'28',
                 parents:{
-                    father:'Something...',
-                    mother:'Something...'
+                    father:'Mario',
+                    mother:'Martha'
                 }
             }
         },
         methods:{
             updateName(){
-                this.name ='Intelligent'
+                this.name ='Mike'
             },
             alertHello(){
-                alert('Hello ' + this.name)
+                alert('HELLO!!')
             },
-             updateAge(age_new){
-                this.age = age_new
-                console.log(age_new)
+            updateAge(value){
+                this.age = value
             }
         }
  

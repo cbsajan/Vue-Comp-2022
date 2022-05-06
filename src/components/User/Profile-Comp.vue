@@ -1,4 +1,4 @@
-<template>
+|<template>
         <div class="user_profile">
             <h3>User information</h3>
             <ul>
@@ -11,44 +11,66 @@
                 <li>
                     <span>Lastname:</span> {{ userLastname }}
                 </li>
-                 <li>
+                <li>
                     <span>Age:</span> {{ userAge }}
                 </li>
-                <h4>Parents :</h4>
-                  <ul>
+                <h3>Parents:</h3>
+                <ul>
                     <li v-for="(key,value,index) in userParents" :key="index">
                         <span>{{ value }}:</span> {{ key }}
                     </li>
                 </ul>
             </ul>
-            <button @click="updateLastname" >Change from child</button>
-            <button @click="sayHello" >Say Hello</button>
-            <button @click="updateAge(10)" >Update Age</button>
+            <button @click="updateLastname">Change from the child</button>
+            <button @click="sayHello">Say hello</button>
+            <button @click="updateAge(40)">Update age</button>
         </div>
 </template>
 
 <script>
     export default {
         props:{
-            alsoKnowAs:String,
-            userLastname:String,
-            userAge:Number,
+            alsoKnowAs:{
+                type:String,
+                required:true,
+                default: 'N/A'
+            },
+            userLastname:{ 
+                type:String,
+                // validator(value){
+                //     if(value === 'Jones'){
+                //         return true
+                //     }else{
+                //         return false
+                //     }
+                // }
+            },
+            userAge:[Number,String],
             userParents: Object,
-            updateAge:Function
+            updateAge: Function
+        },
+        emits:{
+            'update-lastname':function(lastname){
+                if(lastname === 'Michelsossn'){
+                    return true;
+                } else {
+                    alert('Wrong value dev !!')
+                    return false
+                }
+            }
         },
         data(){
             return {
-                name:'Sajan'
+                name:'Steve'
             }
         },
         methods:{
             updateLastname(){
-                this.$emit('update-lastname','Test  ')
+                this.$emit('update-lastname','Michelsossn')
             },
             sayHello(){
-                this.$emit('say-hello' )
-            },
-           
+                this.$emit('say-hello')
+            }
         }
     }
 </script>
