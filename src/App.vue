@@ -2,7 +2,14 @@
     <div>
         <app-header></app-header>
             <div class="container">
-                <comp-cars :cars="cars"></comp-cars>
+                <comp-cars></comp-cars>
+                <!-- <h3>Parent</h3>
+                <ul>
+                    <li v-for="car in cars" :key="car.model">
+                        <span>{{ car.brand}}</span>:{{car.model }}
+                    </li>
+                </ul>
+                <button @click="changeCar">Change car</button> -->
             </div>
         <app-footer></app-footer>
     </div>
@@ -23,8 +30,16 @@
                 ]
             }
         },
+        provide(){
+            return {
+                cars: this.cars,
+                changeCar: this.changeCar
+            }
+        },
         methods:{
-         
+            changeCar(){
+                this.cars[0].brand = 'Renault'
+            }
         }
     }
 </script>

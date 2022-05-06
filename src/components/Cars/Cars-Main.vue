@@ -1,22 +1,21 @@
 <template>
-<div>
-    <h1>Welcome to the cars</h1>
     <div>
-        <list-cars :cars="cars"></list-cars>
+        <h1>Welcome to the cars</h1>
+        <div>
+            <comp-list></comp-list>
+        </div>
     </div>
-</div>
 </template>
 
 <script>
-import listCars from './List-Cars';
+import compList from './List-Cars.vue';
 export default {
     props:['cars'],
     components:{
-        listCars
+        compList
     },
     data(){
-        return{
-
+        return {
         }
     }
 }
