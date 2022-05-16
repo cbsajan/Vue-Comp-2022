@@ -1,7 +1,9 @@
 ><template>
     <div class="car_brands">
         <h3>Car brand</h3>
-        <slot></slot>
+        <slot name="brands"></slot>
+        <slot name="other"></slot>
+        <slot ></slot>
     </div>
 </template>
 

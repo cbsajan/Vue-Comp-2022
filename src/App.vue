@@ -3,19 +3,19 @@
         <app-header></app-header>
             <div class="container">
                 <comp-cars></comp-cars>
-                <!-- <h3>Parent</h3>
-                <ul>
-                    <li v-for="car in cars" :key="car.model">
-                        <span>{{ car.brand}}</span>:{{car.model }}
-                    </li>
-                </ul>
-                <button @click="changeCar">Change car</button> -->
-                <car-brands>
-                    <ul>
-                        <li v-for="(brand,index) in brands" :key="index">
-                            {{ brand }}
-                        </li>
-                    </ul>
+               <car-brands>
+                    <div>Content at the top</div>
+                    <template v-slot:brands>
+                        <ul>
+                            <li v-for="(brand,index) in brands" :key="index">
+                                {{ brand }}
+                            </li>
+                        </ul>
+                    </template>
+                    <template v-slot:other>
+                        <div>Some other content</div>
+                    </template>
+                    <strong>Default slot</strong>
                 </car-brands>
             </div>
         <app-footer></app-footer>
