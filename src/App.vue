@@ -10,6 +10,13 @@
                     </li>
                 </ul>
                 <button @click="changeCar">Change car</button> -->
+                <car-brands>
+                    <ul>
+                        <li v-for="(brand,index) in brands" :key="index">
+                            {{ brand }}
+                        </li>
+                    </ul>
+                </car-brands>
             </div>
         <app-footer></app-footer>
     </div>
@@ -17,12 +24,15 @@
 
 <script>
     import compCars from './components/Cars/Cars-Main.vue';
+    import CarBrands from './components/Cars/Brand-Cars.vue';
     export default {
         components:{
-            compCars
+            compCars,
+            CarBrands
         },
         data(){
             return {
+                brands:['Mazda','Honda','Renault'],
                 cars:[
                     {model:'F9',brand:'Ferrari'},
                     {model:'911',brand:'Porsche'},
