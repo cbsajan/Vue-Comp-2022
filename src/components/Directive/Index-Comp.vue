@@ -1,11 +1,9 @@
 <template>
 
+    <div v-user-lastname="lastname"></div>
     <div v-awesome.red.big="textToRender"></div>
-    <div v-awesome.blue.small="textToRender"></div>
 
-    <button @click="this.textToRender = 'Something else'">
-        Trigger update
-    </button>
+    <button @click="this.textToRender = 'Something else'">Trigger This</button>
 
 </template>
 
@@ -15,7 +13,16 @@
 export default {
     data() {
         return {
-            textToRender: 'Text from data'
+
+            textToRender: 'Text from data',
+            lastname: 'Jones'
+        }
+    },
+    directives: {
+        'user-lastname': {
+            beforeMount(el, binding) {
+                el.innerHTML = binding.value
+            }
         }
     }
 }    
